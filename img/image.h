@@ -58,6 +58,9 @@ int lb_imageWriter(FILE* target, lb_rawImageT* data);// must be "rb"
 lb_imageT* lb_imageExtractor(lb_rawImageT* rawimg);
 lb_rawImageT* lb_imageParser(lb_imageT* origin, lb_flags8T requests);
 
+void lb_imageCloser(lb_imageT* target);
+void lb_rawImageCloser(lb_rawImageT* target); 
+
 #ifdef LB30113_CPP
 } } }
 #else

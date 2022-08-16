@@ -152,6 +152,14 @@ lb_rawImageT* lb_imageParser(lb_imageT* origin, lb_flags8T requests) {
     return lb_imageParserV0(origin, requests);
 }
 
+void lb_imageCloser(lb_imageT* target) {
+    for(uint32_t i=0;i!=target->h;i++) { free(target->memory[i]); } free(target->memory);
+    free(target);
+}
+void lb_rawImageCloser(lb_rawImageT* target) {
+    free(target->image); free(target->memory); free(target);
+}
+
 #ifdef LB30113_CPP
 } } }
 #else
